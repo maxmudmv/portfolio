@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-obsidian: #050507;
+  --bg-surface: #0b0d13;
+  --gold-primary: #d4af37;
+  --amber-accent: #f59e0b;
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --font-inter: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  --font-space: "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #050507;
+  color: #f8fafc;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: #050507;
+  color: #f8fafc;
+  overflow-x: hidden;
+  selection-background-color: rgba(212, 175, 55, 0.3);
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.28);
+  color: #fef3c7;
+}
+
+/* Custom subtle gold scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #06070a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262936;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+@layer components {
+  .glass-panel {
+    background: linear-gradient(
+      145deg,
+      rgba(17, 20, 29, 0.82) 0%,
+      rgba(9, 11, 16, 0.9) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.16);
+  }
+
+  .glass-panel-hover {
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-panel-hover:hover {
+    border-color: rgba(212, 175, 55, 0.42);
+    box-shadow: 0 12px 36px -10px rgba(212, 175, 55, 0.22);
+    transform: translateY(-2px);
+  }
+
+  .gold-text-gradient {
+    background: linear-gradient(135deg, #fffbeb 0%, #f3d266 45%, #d4af37 75%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .ambient-grid {
+    background-size: 44px 44px;
+    background-image: 
+      linear-gradient(to right, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+  }
+}
+
+/* Keyboard accessibility focus states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
